@@ -1,0 +1,26 @@
+@import '../../style-config/theme.scss', '../../style-config//mixins.scss';
+
+.order-finalized {
+	@include displayFlex(flex, column, center, center);
+	&-form {
+		width: 50vw;
+		padding-bottom: 150px;
+		&-shopping-cart {
+			width: 100%;
+			padding: 10px;
+			height: 50vh;
+			overflow-y: scroll;
+		}
+		div {
+			margin: 10px 0;
+		}
+		&-submit {
+			width: 100%;
+			@include displayFlex(flex, column, space-around, center);
+			span {
+				font-weight: 800;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}

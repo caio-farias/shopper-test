@@ -1,0 +1,42 @@
+@import '../../../style-config/theme.scss', '../../../style-config/mixins.scss';
+
+.shopping-cart {
+	&--fixed {
+		z-index: 99;
+		width: 30vw;
+		max-height: 65vh;
+		position: fixed;
+		right: 20px;
+		background-color: $light-gray;
+		border-radius: 6px;
+		box-shadow: #0000001a 0 3px 10px;
+		border: 2px solid $primary-color;
+	}
+	&-header {
+		@include displayFlex(flex, row, space-between, center);
+		@include textStyle($black, $title, 500);
+		text-align: center;
+		padding: 20px;
+	}
+	&-wrapper {
+		&--hide {
+			display: none;
+		}
+		overflow-y: scroll;
+		padding: 20px;
+		@include displayFlex(flex, column, flex-start, space-between);
+		height: 30vh;
+	}
+
+	&-footer {
+		@include displayFlex(flex, column, center, flex-start);
+		padding: 20px;
+		background-color: $secondary-color;
+		span {
+			margin-bottom: 20px;
+		}
+		button {
+			width: 100%;
+		}
+	}
+}

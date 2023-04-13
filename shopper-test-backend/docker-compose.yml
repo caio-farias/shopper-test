@@ -1,0 +1,26 @@
+version: '3.8'
+
+networks:
+  mongo-network:
+    driver: bridge
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./.Dockerfile
+    environment:
+      NODE_ENV: development
+      NODE_PATH: .
+      CONTEXT_PATH: /api/v1
+      PORT: 3000
+      MONGODB_URL: mongodb+srv://caiofs:caiofs@shopper-test-cluster.zx7ccrf.mongodb.net/?retryWrites=true&w=majority
+      MONGODB_URI: mongodb+srv://caiofs:caiofs@shopper-test-cluster.zx7ccrf.mongodb.net/shopper-db?retryWrites=true&w=majority
+      MONGODB_DATABASE: shopper-db
+
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start

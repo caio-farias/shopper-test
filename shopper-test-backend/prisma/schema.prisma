@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI") 
+}
+
+type address {
+  street String
+  city   String
+  state  String
+  zip    String
+}
+
+model user {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email   String   @unique
+  name    String
+  cpfCnpj String?
+  birthDate DateTime?
+  address address?
+  orders order[]
+}
+
+model stock {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String
+  category String?
+  location address
+  products productStock[] 
+  orders order[]
+}
+
+model productStock {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String 
+  price Float
+  qtyStock Int
+  category String?
+  brand String?
+  stock  stock @relation(fields: [stockId], references: [id])
+  stockId String @db.ObjectId
+  productsOrdered productOrdered[]
+}
+
+
+model productOrdered {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  name String 
+  price Float
+  discount Float?
+  qty Int
+  category String?
+  brand String?
+  order order @relation(fields: [orderId], references: [id])
+  orderId String @db.ObjectId
+  productInStock productStock @relation(fields: [productInStockId], references: [id])
+  productInStockId String @db.ObjectId
+}
+
+model order {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  owner    user   @relation(fields: [ownerId], references: [id])
+  ownerId String @db.ObjectId
+  stock    stock   @relation(fields: [stockId], references: [id])
+  stockId String @db.ObjectId
+  status String
+  deliveryDate DateTime
+  productsOrdered productOrdered[]
+  productIds String[] @db.ObjectId
+  orderPrice Float?
+}

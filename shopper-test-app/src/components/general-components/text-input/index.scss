@@ -1,0 +1,41 @@
+@import '../../../style-config/theme.scss', '../../../style-config/mixins.scss';
+
+.text-input-wrapper {
+	&--common {
+		width: 100%;
+		@include displayFlex(flex, column, auto, auto);
+		.text-input-label {
+			&--common {
+				@include textStyle($gray, $label, auto);
+				padding-bottom: 0.3em;
+				margin-left: 5px;
+			}
+		}
+		.text-input {
+			&--common {
+				background-color: $light-gray-3;
+				border: none;
+				border-radius: 10px;
+				padding: 0.5em 0.7em;
+				@include textStyle($dark, $text, auto);
+				&:focus {
+					border: none;
+					line-height: 0px;
+				}
+			}
+		}
+	}
+	.text-input__icon {
+		&--common {
+			display: none;
+		}
+	}
+}
+
+.text-input-error {
+	&--common {
+		animation: showSlideVertical 0.2s;
+		@include textStyle($red, 12px, auto);
+		margin-top: 5px;
+	}
+}

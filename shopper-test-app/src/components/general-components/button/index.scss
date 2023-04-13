@@ -1,0 +1,49 @@
+@import '../../../style-config/theme.scss';
+
+.button {
+	&:hover {
+		cursor: pointer;
+		opacity: 0.9;
+	}
+	&--common {
+		color: white;
+		background: $green;
+		border-radius: 10px;
+		border: 0;
+		padding: 7.5px 15px;
+		font-weight: bold;
+	}
+	&--tiny {
+		color: $primary-color;
+		font-size: $sub-title;
+		border: none;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	&--common-red {
+		color: white;
+		background: $red;
+		border-radius: 10px;
+		border: 0;
+		padding: 7px 25px;
+		font-weight: bold;
+	}
+	&--modal {
+		align-self: center;
+		width: 100px;
+		background: $light-green-2;
+		color: white;
+		text-align: center;
+		border-radius: 10px;
+		border: 0;
+		padding: 0.7em 0.7em;
+		font-weight: 600;
+	}
+	&--return-button {
+		// background: no-repeat url('../../../assets/images/back.png');
+		width: 15px;
+		height: 22px;
+		background-size: contain;
+		border: transparent;
+	}
+}

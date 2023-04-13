@@ -1,0 +1,111 @@
+@keyframes arrowUp {
+	0% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes arrowDown {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes showCard {
+	0% {
+		max-height: 0px;
+	}
+	100% {
+		max-height: 2000px;
+	}
+}
+
+@keyframes hideCard {
+	0% {
+		opacity: 1;
+		min-height: 150px;
+	}
+	100% {
+		opacity: 0;
+		min-height: 0px;
+	}
+}
+
+@keyframes slideAdd {
+	0% {
+		opacity: 0;
+		transform: translateX(-40px);
+	}
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes slideRemove {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-40px);
+		display: none;
+	}
+}
+
+@keyframes fadeInModal {
+	0% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes showError {
+	0% {
+		opacity: 0.99;
+		height: 1px;
+	}
+	100% {
+		opacity: 1;
+		height: 18px;
+		max-width: 100%;
+	}
+}
+
+@keyframes showSlideVertical {
+	0% {
+		opacity: 0.1;
+		transform: translateY(-30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes hideSlideVertical {
+	0% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+	20% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+	90% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+}

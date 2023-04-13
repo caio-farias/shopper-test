@@ -1,0 +1,40 @@
+@import '../../../style-config/theme.scss', '../../../style-config//mixins.scss';
+
+.card {
+	&-wrapper {
+		@include displayFlex(flex, column, center, center);
+		&-image {
+			&:hover {
+				opacity: 0.75;
+				cursor: pointer;
+			}
+		}
+		&-content {
+			@include displayFlex(flex, column, space-between, center);
+			@include textStyle($black, $sub-label, 400);
+			text-align: center;
+			margin: 5px;
+			&__title {
+				margin-top: 5px;
+			}
+			&-description-wrapper {
+				@include displayFlex(flex, column, space-around, center);
+
+				margin-top: 5px;
+				&__prefix {
+					@include textStyle($black, $sub-label, 800);
+				}
+				&__description {
+					@include textStyle($primary-color, $label, 800);
+				}
+			}
+		}
+		&-action {
+			margin: 5px;
+			button:hover {
+				opacity: 0.75;
+				cursor: pointer;
+			}
+		}
+	}
+}

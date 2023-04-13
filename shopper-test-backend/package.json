@@ -1,0 +1,44 @@
+{
+	"name": "shopper-test-backend",
+	"version": "0.0.1",
+	"main": "server.js",
+	"author": "Caio Farias <caio4095@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "ts-node-dev --files --exit-child src/server.ts",
+		"build": "tsc",
+		"clean": "rimraf ./build",
+		"start": "node build/server.js",
+		"jest-clear-cache": "jest --clearCache",
+		"test-app": "jest --collect-coverage --detectOpenHandles",
+		"prisma-generate": "npx prisma generate && npx prisma db push",
+		"integration-test": "jest --watch --detectOpenHandles tests/app.integration.spec.ts"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.12",
+		"@types/express": "^4.17.13",
+		"@types/jest": "^28.1.8",
+		"@types/morgan": "^1.9.3",
+		"@types/node": "^18.15.11",
+		"@types/supertest": "^2.0.12",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"eslint": "^8.18.0",
+		"jest": "^28.1.2",
+		"rimraf": "^3.0.2",
+		"supertest": "^6.2.3",
+		"ts-jest": "^28.0.5",
+		"ts-node-dev": "^2.0.0",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"@prisma/client": "^4.12.0",
+		"bson": "^5.2.0",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.1",
+		"express": "^4.18.1",
+		"helmet": "^5.1.0",
+		"mongodb": "^5.1.0",
+		"morgan": "^1.10.0"
+	}
+}

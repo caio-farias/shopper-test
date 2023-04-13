@@ -1,0 +1,22 @@
+@import '../../../style-config/theme.scss', '../../../style-config/mixins.scss';
+
+.main-nav {
+	background-color: $primary-color;
+	padding: 1em;
+	text-align: center;
+	@include displayFlex(flex, row, center, center);
+	a {
+		&:active,
+		&:focus {
+			color: white;
+		}
+		text-decoration: none;
+		@include textStyle(white, $sub-title, 500);
+		&:first-of-type {
+			@include textStyle(white, $title, 500);
+		}
+		&:not(:first-of-type) {
+			margin-left: 80px;
+		}
+	}
+}
